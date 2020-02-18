@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="parent">
+    <div class="div1">
+        <mat-form-field  class="example-full-width">
+            <input matInput  placeholder="Username" [(ngModel)] = "username" #input minlength="3" #input maxlength="10">
+          </mat-form-field>
+    </div>
+    <div class="div2">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" #input maxlength="10" #input minlength="3">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+    </div>
+    <div class="div3">
+          <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </div>
+    <div class="div4">
+        <button mat-stroked-button color="primary" routerLink="/registration" routerLinkActive="active">You are not a member yet? Join now.</button>
+  </div>
+</div>
+
+
+

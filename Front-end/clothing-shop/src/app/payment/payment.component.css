@@ -1,0 +1,27 @@
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+  .div1 { grid-area: 2 / 2 / 3 / 3;
+    margin: auto }
+  .div2 { grid-area: 3 / 2 / 4 / 3;
+    margin: auto}
+  .div3 { grid-area: 4 / 2 / 5 / 3;
+    font-size: 20px;
+    margin: auto }
+  .div4 { grid-area: 5 / 2 / 6 / 3;
+  margin: auto}

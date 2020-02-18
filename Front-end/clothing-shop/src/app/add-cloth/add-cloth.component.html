@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<div class="parent">
+  <div class="div1">
+      <mat-form-field >
+          <input matInput placeholder="Name" [(ngModel)]="cloth.name">
+        </mat-form-field>
+  </div>
+  <div class="div2">
+      <mat-form-field>
+          <mat-label>Sex</mat-label>
+          <mat-select [(ngModel)]="cloth.sex" >
+            <mat-option *ngFor="let sex of sexes" [value]="sex">
+              {{sex.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  <div class="div5">
+      <mat-label>Size</mat-label>
+      <div><mat-checkbox [(ngModel)]="ifS">S</mat-checkbox></div>
+      <div><mat-checkbox [(ngModel)]="ifM">M</mat-checkbox></div>
+      <div><mat-checkbox [(ngModel)]="ifL">L</mat-checkbox></div>
+      <div><mat-checkbox [(ngModel)]="ifXL">XL</mat-checkbox></div>
+  </div>
+  <div class="div3">
+      <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="cloth.category" >
+            <mat-option *ngFor="let category of categorys" [value]="category">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  <div class="div4">
+      <mat-form-field>
+          <mat-label>Color</mat-label>
+          <mat-select [(ngModel)]="cloth.color" >
+            <mat-option *ngFor="let color of colors" [value]="color">
+              {{color.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  <div class="div6">
+      <mat-form-field>
+          <input matInput placeholder="Price" [(ngModel)]="cloth.price">
+        </mat-form-field>
+  </div>
+  <div class="div7">
+      <button mat-raised-button (click)="fileInput.click()">
+          <span>Select image</span>
+          <input #fileInput type="file" (change)="onFileSelected($event)" style="display:none;" />
+      </button>
+  </div>
+  <div class="div8">
+      <img [src]="'data:image/jpg;base64,'+cloth.image" style="height:100px;width:100px" />
+  </div>
+  <div class="div9">
+      <button  mat-raised-button color="primary" (click)="addCloth()">Add cloth</button>
+  </div>
+</div>

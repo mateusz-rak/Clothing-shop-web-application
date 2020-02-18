@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="parent">
+      <div class="div1">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name"  [value]="client.name" [(ngModel)]="client.name">
+          </mat-form-field>
+      </div>
+      <div class="div2">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Surname"  [value]="client.surname" [(ngModel)]="client.surname">
+          </mat-form-field>
+      </div>
+      <div class="div3">
+          <mat-radio-group  aria-label="Select an option" [(ngModel)]="client.sex">
+            <mat-radio-button value="Man" >Man</mat-radio-button>
+            <mat-radio-button value="Woman" >Woman</mat-radio-button>
+          </mat-radio-group>
+      </div>
+      <div class="div4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Address"  [value]="client.address" [(ngModel)]="client.address">
+          </mat-form-field>
+      </div>
+      <div class="div5">
+        <button  mat-raised-button color="primary" (click)="save()">Save</button>
+      </div>
+</div>
+

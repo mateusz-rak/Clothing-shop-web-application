@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<mat-horizontal-stepper [linear]=true #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your login and password</ng-template>
+      <mat-form-field class="example-full-width" hintLabel="Max 10 characters">
+        <input matInput placeholder="Username" formControlName="username" #input maxlength="10" #input minlength="3" required >
+      </mat-form-field>
+      <div>
+      <mat-form-field class="example-full-width" hintLabel="Min 3 and max 10 characters">
+          <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" #input maxlength="10" #input minlength="3" required >
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <button  mat-raised-button color="primary" (click)="checkUsername(stepper)">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your account informations</ng-template>
+
+      <table cellspacing="0"><tr>
+        <td><mat-form-field>
+          <input matInput placeholder="Name" formControlName="name" #input maxlength="11" required>
+        </mat-form-field></td>
+        <td><mat-form-field>
+          <input matInput placeholder="Surname" formControlName="surname" #input maxlength="11" required>
+        </mat-form-field></td>
+      </tr></table>
+          <mat-radio-group formControlName="sex"  aria-label="Select an option" required>
+              <mat-radio-button value="Man" >Man</mat-radio-button>
+              <mat-radio-button value="Woman" >Woman</mat-radio-button>
+            </mat-radio-group>
+            <table cellspacing="0"><tr>
+                <td><mat-form-field>
+                  <input matInput placeholder="Street" formControlName="street" #input maxlength="11" required>
+                </mat-form-field></td>
+                <td><mat-form-field>
+                  <input matInput placeholder="House number" formControlName="houseNumber" #input maxlength="11" required>
+                </mat-form-field></td>
+                <td><mat-form-field>
+                    <input matInput placeholder="Flat number" formControlName="flatNumber" #input maxlength="11" required>
+                  </mat-form-field></td>
+              </tr></table>
+              <table cellspacing="0"><tr>
+                  <td><mat-form-field>
+                    <input matInput placeholder="Postcode" formControlName="postcode" #input maxlength="6" #input minlength="6" required>
+                  </mat-form-field></td>
+                  <td><mat-form-field>
+                    <input matInput placeholder="City" formControlName="city" #input maxlength="11" required>
+                  </mat-form-field></td>
+                </tr></table>
+      <div>
+        <button  mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button  mat-raised-button color="primary" matStepperNext (click)="addClient()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You have been correctly registered.
+    <div>
+      <button  mat-raised-button color="primary" routerLink="/login" routerLinkActive="active">Go to login</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

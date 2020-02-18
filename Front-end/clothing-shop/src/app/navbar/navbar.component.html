@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <mat-icon>shop</mat-icon>
+    <span>Cloth Shopping</span>
+    <span class="example-spacer"></span>
+    <button class="example-button-row" mat-raised-button [matMenuTriggerFor]="woman" *ngIf="!shopService.isLogged || shopService.appUser?.role=='ROLE_CLIENT'">Woman</button>
+    <button class="example-button-row" mat-raised-button [matMenuTriggerFor]="man" *ngIf="!shopService.isLogged || shopService.appUser?.role=='ROLE_CLIENT'">Man</button>
+
+  <mat-menu #man="matMenu">
+    <button mat-menu-item routerLink="/cloth/man/t-shirt" routerLinkActive="active">T-Shirt</button>
+    <button mat-menu-item routerLink="/cloth/man/jeans" routerLinkActive="active">Jeans</button>
+    <button mat-menu-item routerLink="/cloth/man/hoodie" routerLinkActive="active">Hoodie</button>
+    <button mat-menu-item routerLink="/cloth/man/jacket" routerLinkActive="active">Jacket</button>
+  </mat-menu>
+
+  <mat-menu #woman="matMenu">
+      <button mat-menu-item routerLink="/cloth/woman/t-shirt" routerLinkActive="active">T-Shirt</button>
+      <button mat-menu-item routerLink="/cloth/woman/jeans" routerLinkActive="active">Jeans</button>
+      <button mat-menu-item routerLink="/cloth/woman/hoodie" routerLinkActive="active">Hoodie</button>
+      <button mat-menu-item routerLink="/cloth/woman/jacket" routerLinkActive="active">Jacket</button>
+    </mat-menu>
+  <span class="example-spacer"></span>
+  <button  mat-icon-button routerLink="/order" routerLinkActive="active" *ngIf="!shopService.isLogged || shopService.appUser?.role=='ROLE_CLIENT'">
+    <mat-icon [matBadge]="shopService.cart.clothes.length" matBadgeColor="warn" matTooltip="Cart">shopping_cart</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <span *ngIf="shopService.isLogged">{{shopService.appUser.username}}</span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon matTooltip="Menu">account_box</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <div *ngIf="!shopService.isLogged; else elseBlock">
+      <button mat-menu-item routerLink="/login" routerLinkActive="active"  >Login</button>
+      <button mat-menu-item routerLink="/registration" routerLinkActive="active"  >Registration</button>
+    </div>
+    <ng-template #elseBlock>
+    <div *ngIf="shopService.appUser.role=='ROLE_CLIENT'">
+        <button mat-menu-item routerLink="/account" routerLinkActive="active">My account</button>
+        <button mat-menu-item routerLink="/shoppingHistory" routerLinkActive="active">History of orders</button>
+        <button mat-menu-item routerLink="/login" routerLinkActive="active" (click)="logout()">Logout</button>
+      </div>
+      <div *ngIf="shopService.appUser.role=='ROLE_EMPLOYER'">
+        <button mat-menu-item routerLink="/addCloth" routerLinkActive="active">Add cloth</button>
+        <button mat-menu-item routerLink="/listOfClothes" routerLinkActive="active">List of clothes</button>
+        <button mat-menu-item routerLink="/login" routerLinkActive="active" (click)="logout()">Logout</button>
+      </div>
+    </ng-template>
+
+  </mat-menu>
+  </mat-toolbar-row>
+

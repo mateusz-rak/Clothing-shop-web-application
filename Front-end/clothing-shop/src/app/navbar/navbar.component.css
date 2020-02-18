@@ -1,0 +1,21 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  align-content: center;
+    justify-content: flex-end;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}

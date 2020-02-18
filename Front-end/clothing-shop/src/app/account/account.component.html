@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="parent">
+      <div class="div1">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" disabled [value]="client.name">
+          </mat-form-field>
+      </div>
+      <div class="div2">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Surname" disabled [value]="client.surname">
+          </mat-form-field>
+      </div>
+      <div class="div3">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Sex" disabled [value]="client.sex">
+          </mat-form-field>
+      </div>
+      <div class="div4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Address" disabled [value]="client.address">
+          </mat-form-field>
+      </div>
+      <div class="div5">
+        <button  mat-raised-button color="primary" routerLink="/account/change" routerLinkActive="active">Change personal data</button>
+        <button  mat-raised-button color="warn" (click)="deleteAccount()">Delete account</button>
+      </div>
+</div>
+
+
+
+

@@ -1,0 +1,34 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+  .div1 { grid-area: 2 / 2 / 3 / 3;
+    margin:auto }
+  .div2 { grid-area: 2 / 3 / 3 / 4;
+    margin:auto }
+  .div3 { grid-area: 3 / 3 / 4 / 4;
+    margin:auto }
+  .div4 { grid-area: 4 / 3 / 5 / 4;
+    margin:auto }
+  .div5 { grid-area: 3 / 2 / 5 / 3;
+  margin:auto}
+  .div6 { grid-area: 5 / 2 / 6 / 3;
+    margin:auto}
+  .div7 { grid-area: 5 / 3 / 6 / 4;
+    margin:auto }
+  .div8 { grid-area: 6 / 2 / 8 / 4;
+    margin:auto }
+  .div9 { grid-area: 8 / 2 / 9 / 4;
+    margin:auto}

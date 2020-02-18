@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="parent">
+  <div class="div1">
+      <label>Select type of payment: </label>
+  </div>
+  <div class="div2">
+      <mat-radio-group
+      [(ngModel)]="order.typeOfPayment">
+      <div>
+        <mat-radio-button class="example-radio-button" *ngFor="let type of typesOfPayment" [value]="type">
+          <div>
+            {{type.name}}
+          </div>
+        </mat-radio-button>
+      </div>
+    </mat-radio-group>
+  </div>
+<div class="div3">
+  Total amount: {{order.price | currency}}
+</div>
+<div class="div4">
+  <button mat-raised-button color="primary" (click)="payment()">Pay</button>
+</div>
+</div>
+
